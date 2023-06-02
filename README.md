@@ -5,11 +5,12 @@ This action deletes older releases of given repo
 Add following step to your workflow:
 
 ```yaml
-- uses: dev-drprasad/delete-older-releases@v0.2
+- uses: thomashampson/delete-older-releases
   with:
     repo: <owner>/<repoName> # defaults to current repo
     keep_latest: 3
-    delete_tag_pattern: beta # defaults to ""
+    delete_tag_regex: beta # defaults to ""
+    prerelease_only: true # defaults to false
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
